@@ -1,0 +1,70 @@
+Objetivo:
+
+O Jacobiano é um operador usado para controlar braços robóticos onde se tem a posição atual do braço e o deslocamento desejado do end-effector. Como resultado se consegue a variação nos ângulos das juntas que resulta no deslocamento desejado.
+
+O objetivo é criar uma rede neural que receba como entrada os ângulos atuais do braço robótico e o deslocamento desejado do end-effector. A saída deve ser a variação necessária nos ângulos das juntas para causar o deslocamento desejado.
+
+Geração de dados:
+
+Os dados para treinar a rede são produzidos através da cinemática direta do braço. 
+
+O primeiro passo é gerar uma posição aleatória para o braço, para cobrir o maior número possível de posições dentro do espaço de trabalho do braço.
+
+O segundo passo é gerar ângulos que representam uma variação nas juntas do braço.
+
+O terceiro passo é calcular o deslocamento causado na posição do end-effector pelos ângulos gerados no passo anterior.
+
+Ao final do processo teremos gerado ângulos para as juntas, uma variação nesses ângulos e o desolcamento resultante no end-effector.
+
+O objetivo é utilizar a os ângulos iniciais e o deslocamento do end-effector como entrada da rede, e utilizar a variação dos ângulos como saída da rede.
+
+Normalização dos dados:
+
+A função de ativação usada nos neurônios da camada de saída é a sigmóide, o que significa que a saída da rede sempre estará entre 0 e 1. Por esse motivo, normalizamos todos os dados entre 0 e 1, sendo 0 o menor valor possível do dado e 1 o maior valor possível do dado. Ou seja, escalamos o dado do seu intervalo de origem para o intervalo entre 0 e 1.
+
+Caso de estudo:
+
+Para o teste da abordagem será utilizado um braço de duas juntas no espaço 2D.
+
+
+
+Passos:
+-Aplicação
+X - Representar um braço em 2D
+X - Mover o braço
+X - Gerar trajetórias
+X - Gerar múltiplas trajetórias com diferentes step lengths (0,1 a 10,0)
+X - Exibir informações na tela
+
+-Jacobiano
+X - Mover o braço na trajetória usando o Jacobiano
+X - Analisar o erro do Jacobiano
+X - Registrar os erros do jacobiano em todas as trajetórias
+
+-Rede neural
+X - Gerar e validar posições aleatórias para o braço
+X - Normalizar samples e validar a normalização
+X - Salvar samples normalizadas em um dataset
+X - Treinar a rede neural
+X - Analisar o erro da rede neural
+X - Registrar os erros
+
+o tormang tem 63 cm no total, o movimento maximo que o ricardo usou é de 1cm
+
+0.843413930842 das amostras geradas são válidas
+
+Foram geradas samples com delta theta entre -5 e 5 graus. O limite de movimento válido é 20. Os movementos são gerados com uma distribuição normal
+
+
+Reunião:
+Utilizar uma tarefa para testar a abordagem híbrida
+Banda de controle (menos laços é melhor)
+Pode usar GPU
+Põe no bolso a singularidade
+Tirar uma ou duas camada e botar dropout
+Treinar para tamanhos maiores
+Diminuir a rede neural até quebrar
+Uma seção de método e como foram feitos os testes e em outra sessão discute os resultados
+O nome da rede é MLP
+Mudar em todo o texto 
+

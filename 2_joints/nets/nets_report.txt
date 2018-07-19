@@ -1,0 +1,12 @@
+20180713_173509
+    2016442 samples
+    [128, 64, 36, 16 ,8]
+    ['relu', 'relu','relu', 'relu', 'relu']
+    1000 epochs
+
+20180714_154336
+    902599 samples
+    [128, 64, 36, 16 ,8]
+    ['relu', 'relu','relu', 'relu', 'relu']
+    500 epochs
+
